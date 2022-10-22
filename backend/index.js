@@ -6,12 +6,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
+const cors = require("cors");
 const userRouter = require("./routes/userRouter.js");
 
 const port = process.env.PORT || 5000;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // connect to database
 mongoose.connect("mongodb://localhost:27017/hackathon-2022", {
