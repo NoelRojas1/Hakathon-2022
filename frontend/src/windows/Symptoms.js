@@ -34,7 +34,7 @@ export default function Symptoms() {
       }
     };
     fetchSymptoms();
-  }, []);
+  }, [id]);
 
   return (
     <div>
