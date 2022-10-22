@@ -18,8 +18,9 @@ userRouter.get(
   "/:id",
   expressAsyncHandler(async (req, res) => {
     const { id } = req.params;
-    const user = await User.findOne({ _id: id });
+    const user = await User.findOne({ _id: id }).populate("symptoms");
     if (user) {
+      console.log(user);
       res.send(user);
     } else {
       res.status(404).send({ message: "User not found" });

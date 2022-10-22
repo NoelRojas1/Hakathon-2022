@@ -1,21 +1,24 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Report() {
+  const { id } = useParams();
   const [user, setUser] = useState({});
+  const [symptoms, setSymptoms] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
-      const { data } = await Axios.get(
-        `http://localhost:5000/user/${user._id}`
-      );
+      const { data } = await Axios.get(`http://localhost:5000/users/${id}`);
       console.log(data);
       if (data) {
+        setSymptoms(data.symptoms);
         setUser(data);
       }
     };
     fetchUser();
-  }, []);
+  }, [id]);
+
   return (
     <div>
       <div>Report</div>
@@ -37,13 +40,12 @@ export default function Report() {
         </p>
       </div>
       <ul>
-        {user ??
-          user.symptoms.map((symptom) => (
-            <li key={symptom._id}>
-              Symptom: <span> {symptom.name}</span>
-              Pain level: <span> {symptom.painLevel}</span>
-            </li>
-          ))}
+        {symptoms.map((symptom) => (
+          <li key={symptom._id}>
+            Symptom: <span> {symptom.name}</span>
+            Pain level: <span> {symptom.painLevel}</span>
+          </li>
+        ))}
       </ul>
     </div>
   );
