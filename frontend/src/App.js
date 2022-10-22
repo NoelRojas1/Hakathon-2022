@@ -5,7 +5,10 @@ import "./App.css";
 import Home from "./windows/Home";
 import Register from "./windows/Register";
 import Signin from "./windows/Signin";
+import UserEdit from "./windows/UserEdit";
 import UserList from "./windows/UserList";
+import Symptoms from "./windows/Symptoms";
+import Report from "./windows/Report";
 
 function App() {
   return (
@@ -41,6 +44,13 @@ function App() {
             <Route exact path="/users" element={<UserList />}></Route>
             <Route exact path="/signin" element={<Signin />}></Route>
             <Route exact path="/register" element={<Register />}></Route>
+            <Route exact path="/user/:id/edit" element={<UserEdit />}></Route>
+            <Route
+              exact
+              path="/user/:id/symptoms"
+              element={<Symptoms />}
+            ></Route>
+            <Route exact path="/report/:id" element={<Report />}></Route>
           </Routes>
         </main>
       </div>
