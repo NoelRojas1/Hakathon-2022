@@ -39,6 +39,7 @@ function App() {
           </div>
         </header>
         <main>
+          <div className="main">SGMC report system</div>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/users" element={<UserList />}></Route>

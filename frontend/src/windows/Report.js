@@ -43,6 +43,7 @@ export default function Report() {
         {symptoms.map((symptom) => (
           <li key={symptom._id}>
             Symptom: <span> {symptom.name}</span>
+            <br></br>
             Pain level: <span> {symptom.painLevel}</span>
           </li>
         ))}
