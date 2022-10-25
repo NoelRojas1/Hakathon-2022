@@ -51,10 +51,11 @@ userRouter.post(
 userRouter.post(
   "/register",
   expressAsyncHandler(async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, age, password } = req.body;
     const user = new User({
       name: name,
       email: email,
+      age: age,
       password: password,
     });
 
