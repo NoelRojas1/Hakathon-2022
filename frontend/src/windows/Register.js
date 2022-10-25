@@ -4,6 +4,7 @@ import React, { useState } from "react";
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [age, setAge] = useState(0);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -16,6 +17,7 @@ export default function Register() {
         {
           name: name,
           email: email,
+          age: age,
           password: password,
         }
       );
@@ -34,6 +36,17 @@ export default function Register() {
             placeholder="enter name"
             required
             onChange={(e) => setName(e.target.value)}
+          ></input>
+        </div>
+
+        <div>
+          <label htmlFor="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            placeholder="enter age"
+            required
+            onChange={(e) => setAge(Number(e.target.value))}
           ></input>
         </div>
 
